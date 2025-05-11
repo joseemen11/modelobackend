@@ -44,10 +44,10 @@ app = FastAPI(
 # Configuración CORS para localhost:3000
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["*"],       # ⚠️ permite cualquier origen (útil en dev)
     allow_credentials=True,
-    allow_methods=["POST", "OPTIONS"],
-    allow_headers=["*"],
+    allow_methods=["*"],       # todos los métodos HTTP
+    allow_headers=["*"],       # todos los headers
 )
 
 @app.post("/predict")
